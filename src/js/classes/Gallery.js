@@ -45,13 +45,13 @@ export default class Gallery {
         const imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
         movie.poster_path = imageBaseUrl + movie.poster_path;
       }
-      // else {
-      //   const imgUrl = new URL(
-      //     '../../images/movie-card-plug.jpg',
-      //     import.meta.url
-      //   );
-      //   movie.poster_path = imgUrl;
-      // }  
+      else {
+        const imgUrl = new URL(
+          '../../images/movie-card-plug.jpg',
+          import.meta.url
+        );
+        movie.poster_path = imgUrl;
+      }  
     });
   }
   
