@@ -1,11 +1,17 @@
 export default class Notify {
+  #MessageSuccess = 'Search result successfull!';
+  #MessageFailure =
+    'Search result not successfull. Enter the movie name and try again!';
+
   constructor() {}
 
-  NOTIFY_UNCORRECT_SEARCH() {
-    document.body.append('');
+  notifyFailure() {
+    //
+    setTimeout(() => {}, 5000);
   }
 
-  NOTIFY_CORRECT_SEARCH() {
+  notifySuccess() {
     //
+    setTimeout(() => {}, 5000);
   }
 }
