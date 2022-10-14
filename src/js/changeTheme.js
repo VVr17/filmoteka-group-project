@@ -6,6 +6,7 @@
 
 const refs = {
   button: document.querySelector('.toggle-track'),
+  input: document.querySelector('.toggle__input'),
   header: document.querySelector('header'),
 };
 
@@ -16,6 +17,7 @@ let currentThemeValue = getThemeValue();
 function updatePage(themeValue) {
   if (themeValue === 'dark-theme') {
     onDarkTheme();
+    refs.input.setAttribute('checked', true);
   }
 }
 updatePage(currentThemeValue);
