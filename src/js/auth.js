@@ -282,7 +282,7 @@ function onLibraryLinkClick(event) {
   if (!isUserLoggedIn) {
     event.preventDefault();
     notification.notifyFailure(
-      'Please, login or sign up to access Library, ',
+      'Please, login or sign up to access Library',
       true
     );
   }
