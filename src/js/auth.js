@@ -40,9 +40,9 @@ const modalRefs = {
   backdrop: document.querySelector('[data-auth-modal]'),
 };
 
-modalRefs.openModalBtn.addEventListener('click', onOpenBtn);
-modalRefs.closeModalBtn.addEventListener('click', onCloseButtonClick);
-modalRefs.backdrop.addEventListener('click', onBackdropClick);
+modalRefs.openModalBtn?.addEventListener('click', onOpenBtn);
+modalRefs.closeModalBtn?.addEventListener('click', onCloseButtonClick);
+modalRefs.backdrop?.addEventListener('click', onBackdropClick);
 
 function onOpenBtn(e) {
   e.preventDefault();
@@ -91,15 +91,15 @@ const refs = {
 };
 let isUserLoggedIn = false;
 
-refs.goToRegBtn.addEventListener('click', () => {
+refs.goToRegBtn?.addEventListener('click', () => {
   switchToRegistrationForm();
 });
 
-refs.goToLoginBtn.addEventListener('click', () => {
+refs.goToLoginBtn?.addEventListener('click', () => {
   switchToLoginForm();
 });
 
-refs.libraryLinkRef.addEventListener('click', onLibraryLinkClick);
+refs.libraryLinkRef?.addEventListener('click', onLibraryLinkClick);
 
 function switchToLoginForm() {
   refs.formLogin.classList.remove('hidden');
@@ -119,7 +119,7 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
 
-refs.formReg.addEventListener('submit', e => {
+refs.formReg?.addEventListener('submit', e => {
   e.preventDefault();
 
   const { username, email, password } = e.target.elements;
@@ -132,7 +132,7 @@ refs.formReg.addEventListener('submit', e => {
 });
 
 //SIGN IN===============================================
-refs.formLogin.addEventListener('submit', e => {
+refs.formLogin?.addEventListener('submit', e => {
   e.preventDefault();
 
   const { email, password } = e.target.elements;
@@ -150,11 +150,11 @@ onAuthStateChanged(auth, user => {
     // console.log('user is loged now');
     // console.log('user ->', user);
     isUserLoggedIn = true;
-    refs.signOutBtn.classList.remove('hidden');
-    refs.libraryLinkRef.classList.remove('disabled');
+    refs.signOutBtn?.classList.remove('hidden');
+    refs.libraryLinkRef?.classList.remove('disabled');
 
     changeUserTitle(refreshUserTitle);
-    modalRefs.openModalBtn.removeEventListener('click', onOpenBtn);
+    modalRefs.openModalBtn?.removeEventListener('click', onOpenBtn);
   } else {
     // User is signed out
     isUserLoggedIn = false;
@@ -169,7 +169,7 @@ onAuthStateChanged(auth, user => {
   }
 });
 
-refs.signOutBtn.addEventListener('click', signOutUser);
+refs.signOutBtn?.addEventListener('click', signOutUser);
 
 //////////FIREBASE API FUNCTIONS =======================================
 
@@ -275,7 +275,7 @@ async function changeUserTitle(callback) {
 }
 
 function refreshUserTitle() {
-  refs.signInBtn.innerText = userTitle;
+  if (refs.signInBtn) refs.signInBtn.innerText = userTitle;
 }
 
 function onLibraryLinkClick(event) {
@@ -287,3 +287,5 @@ function onLibraryLinkClick(event) {
     );
   }
 }
+
+export { isUserLoggedIn };

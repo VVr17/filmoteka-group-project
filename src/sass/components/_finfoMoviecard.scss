@@ -156,6 +156,18 @@
 .finfo-moviecard__button {
   padding: 14px 10px;
   flex-basis: calc((100% - 20px) / 2);
+
+  &.disabled {
+    color: var(--disabled);
+    border-color: var(--disabled);
+
+    &:hover,
+    &:focus {
+      color: var(--disabled);
+      background-color: transparent;
+      border-color: var(--disabled);
+    }
+  }
 }
 
 .finfo-moviecard__back-side {

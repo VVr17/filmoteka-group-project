@@ -24,9 +24,14 @@ export default class Modal {
     this.refs.modal?.addEventListener('click', event =>
       this.onBackdropClick(event)
     );
-    this.refs.modal?.addEventListener('click', event =>
-      modalButtons.onModalBtnClick(event.target)
-    );
+    if (this.refs.modal.hasAttribute('data-modal'))
+      this.refs.modal?.addEventListener('click', event =>
+        modalButtons.onModalBtnClick(event.target)
+      );
+    if (this.refs.modal.hasAttribute('data-modal'))
+      this.refs.modal?.addEventListener('click', event =>
+        this.onFlipImgClick(event)
+      );
   }
 
   openModal(event) {
@@ -52,4 +57,9 @@ export default class Modal {
     if (event.code !== 'Escape') return;
     this.closeModal();
   };
+
+  onFlipImgClick(event) {
+    const flipImgRef = event.target.closest('#flip-wrapper');
+    if (flipImgRef) flipImgRef.classList.toggle('is-flipped');
+  }
 }

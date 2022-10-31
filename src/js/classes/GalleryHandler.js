@@ -12,6 +12,7 @@ const apiService = new ApiService();
 export default class GalleryHandler {
   #galleryRef = containerGallery;
   #modalContent = movieCardModalRef;
+  #isFirstOpenModal = true;
 
   addGalleryHandler() {
     this.#galleryRef.addEventListener('click', event =>
@@ -29,7 +30,6 @@ export default class GalleryHandler {
       const itemIdToFind = event.target.closest('a').dataset.movieId;
       this.renderMovieCard(this.findClickedItem(itemIdToFind));
       this.getModalsButtons();
-      this.FlipImgHandler();
       movieCardModal.openModal();
 
       try {
@@ -61,13 +61,6 @@ export default class GalleryHandler {
     );
     localStorageFilms.onModalWatchedBtnChange(
       this.#modalContent.querySelector('.watched-js')
-    );
-  }
-
-  FlipImgHandler() {
-    const flipCard = document.querySelector('#flip-wrapper');
-    flipCard.addEventListener('click', event =>
-      event.currentTarget.classList.toggle('is-flipped')
     );
   }
 
