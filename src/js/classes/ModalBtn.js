@@ -1,4 +1,4 @@
-import { isUserLoggedIn } from '../auth';
+// import { isUserLoggedIn } from '../auth';
 import Library from './Library';
 import LocalStorage from './LocalStorage';
 import Notify from './Notify';
@@ -9,13 +9,14 @@ export const localStorageFilms = new LocalStorage();
 
 export default class ModalBtn {
   onModalBtnClick(btn) {
-    if (!isUserLoggedIn) {
-      notification.notifyFailure(
-        'Please, login or sign up to access Library',
-        true
-      );
-      return;
-    }
+    // if (!isUserLoggedIn) {
+    //   notification.notifyFailure(
+    //     'Please, login or sign up to access Library',
+    //     true
+    //   );
+    //   return;
+    // }
+
     //add method
     if (
       btn.classList.contains(localStorageFilms.keyClasses.addQueue) ||
