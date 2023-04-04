@@ -11,16 +11,22 @@ Filmoteka is a web application that allows users to search for movies using TheM
   
 # Installation
   * Clone the git repository:
-      * git clone https://github.com/VVr17/filmoteka-group-project.git
+      
+          git clone https://github.com/VVr17/filmoteka-group-project.git
+  
   * Install dependencies:
-      * npm install
+      
+          npm install
       
       
  # Usage
     * To start the development server:
-        * npm start
+        
+            npm start
+    
     * To build for production:
-        * npm run build
+            
+            npm run build
 
 # Dependencies
     * axios: ^1.1.1
